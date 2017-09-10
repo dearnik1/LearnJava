@@ -2,6 +2,7 @@ package com.dearnik1.learnjava.basics;
 
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -50,22 +51,68 @@ public class BasicsTest {
 	public void testTask4() throws Exception {
 		ByteArrayOutputStream outputStream = mockOutputStream();
 		task4(0);
-		String[] result = outputStream.toString().split(System.lineSeparator());
+		String[] result = getOutput(outputStream);
 		assertEquals(1, result.length);
 		assertEquals("0", result[0]);
 		outputStream.reset();
 
 		task4(-10);
-		result = outputStream.toString().split(System.lineSeparator());
+		result = getOutput(outputStream);
 		assertEquals(1, result.length);
 		assertEquals("0", result[0]);
 		outputStream.reset();
 
 		task4(35);
-		result = outputStream.toString().split(System.lineSeparator());
+		result = getOutput(outputStream);
 		assertEquals(6, result.length);
 		assertArrayEquals(new String[] {"1", "2", "4", "8", "16", "32"}, result);
 	}
+
+	private String[] getOutput(ByteArrayOutputStream outputStream) {
+		return outputStream.toString().split(System.lineSeparator());
+	}
+
+	@Test
+	public void testTask5() throws Exception {
+		ByteArrayOutputStream outputStream = mockOutputStream();
+		mockInputStream(".");
+		
+		task5();
+		String[] result = getOutput(outputStream);
+		assertEquals(2, result.length);
+		assertEquals("0", result[0]);
+		assertEquals(".", result[1]);
+		outputStream.reset();
+
+		mockInputStream("Te  st .");
+		task5();
+		result = getOutput(outputStream);
+		assertEquals(2, result.length);
+		assertEquals("3", result[0]);
+		assertEquals("Te  st .", result[1]);
+		outputStream.reset();
+
+		mockInputStream(" Hava Nagila,AAA.   ");
+		task5();
+		result = getOutput(outputStream);
+		assertEquals(2, result.length);
+		assertEquals("2", result[0]);
+		assertEquals(" HAvA NAgilA,AAA.", result[1]);
+		outputStream.reset();
+
+		mockInputStream("a a a a a a");
+		task5();
+		result = getOutput(outputStream);
+		assertEquals(2, result.length);
+		assertEquals("5", result[0]);
+		assertEquals("A A A A A A", result[1]);
+	}
+
+	private void mockInputStream(String value) {
+		ByteArrayInputStream inputStream = new ByteArrayInputStream(value.getBytes());
+		System.setIn(inputStream);
+	}
+
 
 	private ByteArrayOutputStream mockOutputStream() {
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();

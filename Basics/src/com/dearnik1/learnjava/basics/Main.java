@@ -77,4 +77,13 @@ public class Main {
 	}
 
 
+	//Read characters from System.in.read() stream and stop if you get '.' symbol.
+	//Calculate how many spaces have been entered (use System.out.println() for output).
+	//Replace all 'a' symbols with 'A' and print result String to System.out. 
+	//Note: To convert a lowercase letter to a capital one,
+	//you need to reduce its code by 32.
+	public static void task5() {
+		//TODO: implement me
+	}
+
 }
