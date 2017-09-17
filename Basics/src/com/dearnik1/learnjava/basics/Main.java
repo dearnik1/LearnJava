@@ -1,4 +1,5 @@
 package com.dearnik1.learnjava.basics;
+import java.io.IOException;
 
 public class Main {
 
@@ -83,7 +84,20 @@ public class Main {
 	//Note: To convert a lowercase letter to a capital one,
 	//you need to reduce its code by 32.
 	public static void task5() {
-		//TODO: implement me
+		/*int sum = 0;             //sum of "."
+		char[] a;
+		int j;//how many symbols before "."
+		for(int i = 0; i < 10000; i++) {
+			a[i] = System.in.read();
+			if (a[i] == 'a') {
+				a[i] -= 32;
+			} else if (a[i] == ' ') {
+				sum++;
+			} else if (a[i] == '.') {
+				break;
+			}
+		}
+*/
 	}
 
 }

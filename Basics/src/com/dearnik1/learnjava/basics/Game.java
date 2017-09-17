@@ -1,5 +1,7 @@
 package com.dearnik1.learnjava.basics;
 
+import java.util.Scanner;
+
 public class Game {
 
 	/* 
@@ -38,6 +40,39 @@ public class Game {
 	
 	*/
 	public static void main(String[] args) {
+		System.out.println("New Game");
+		int matchesLeft = 20;
+		System.out.println(matchesLeft + " matches left");
+		String answer;
+		Scanner scan = new Scanner(System.in);
+
+		int matchesTaken;
+		while (matchesLeft > 0) {
+			System.out.println("Make your choose:");
+			answer = scan.nextLine();
+
+			if (answer.equals("1") || answer.equals("2") || answer.equals("3")) {
+				matchesTaken = Integer.parseInt(answer);
+				matchesLeft -= matchesTaken;
+				matchesTaken = 4 - matchesTaken;               //For computer's win we need opposite turn.
+				System.out.println(matchesLeft + " matches left");
+				matchesLeft -= matchesTaken;
+				System.out.println("Computer took " + matchesTaken);
+				System.out.println(matchesLeft + " matches left");
+			} else if (answer.equals("exit")) {
+				matchesLeft = -1;
+				break;
+			} else {
+				System.out.println("Wrong input!");
+			}
+		}
+		if (matchesLeft != 1) {
+			System.out.println(matchesLeft + " matches left");
+			System.out.println("You lose");
+		}
+		System.out.println("Game Over");
+
+
 
 	}
 }
