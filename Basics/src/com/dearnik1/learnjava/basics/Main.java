@@ -83,21 +83,25 @@ public class Main {
 	//Replace all 'a' symbols with 'A' and print result String to System.out. 
 	//Note: To convert a lowercase letter to a capital one,
 	//you need to reduce its code by 32.
-	public static void task5() {
-		/*int sum = 0;             //sum of "."
-		char[] a;
-		int j;//how many symbols before "."
-		for(int i = 0; i < 10000; i++) {
-			a[i] = System.in.read();
-			if (a[i] == 'a') {
-				a[i] -= 32;
-			} else if (a[i] == ' ') {
-				sum++;
-			} else if (a[i] == '.') {
+	public static void task5() throws IOException {
+		char symbol;
+		int sum = 0;
+		String str = "";
+		do {
+			int data = System.in.read();
+			if(data == -1) {
 				break;
 			}
-		}
-*/
+			symbol = (char) data;
+			if (symbol == 'a') {
+				symbol -= 32;
+			} else if (symbol == ' ') {
+				sum++;
+			}
+			str += symbol;
+		} while (symbol != '.');
+		System.out.println(sum);
+		System.out.println(str);
 	}
 
 }

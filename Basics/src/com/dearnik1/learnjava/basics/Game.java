@@ -66,12 +66,10 @@ public class Game {
 				System.out.println("Wrong input!");
 			}
 		}
-		if (matchesLeft != 1) {
-			System.out.println(matchesLeft + " matches left");
+		if (matchesLeft == 0) {
 			System.out.println("You lose");
+			System.out.println("Game Over");
 		}
-		System.out.println("Game Over");
-
 
 
 	}
