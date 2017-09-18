@@ -1,4 +1,5 @@
 package com.dearnik1.learnjava.basics;
+import java.io.IOException;
 
 public class Main {
 
@@ -82,8 +83,25 @@ public class Main {
 	//Replace all 'a' symbols with 'A' and print result String to System.out. 
 	//Note: To convert a lowercase letter to a capital one,
 	//you need to reduce its code by 32.
-	public static void task5() {
-		//TODO: implement me
+	public static void task5() throws IOException {
+		char symbol;
+		int sum = 0;
+		String str = "";
+		do {
+			int data = System.in.read();
+			if(data == -1) {
+				break;
+			}
+			symbol = (char) data;
+			if (symbol == 'a') {
+				symbol -= 32;
+			} else if (symbol == ' ') {
+				sum++;
+			}
+			str += symbol;
+		} while (symbol != '.');
+		System.out.println(sum);
+		System.out.println(str);
 	}
 
 }
