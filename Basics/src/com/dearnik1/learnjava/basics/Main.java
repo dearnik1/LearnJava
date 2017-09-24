@@ -103,5 +103,21 @@ public class Main {
 		System.out.println(sum);
 		System.out.println(str);
 	}
+	
+	
+	/*
+	* Write a program that determines whether a two-dimensional array of integer values 
+	* is a magic square (the array has the same sum of values in all rows, columns, and diagonals)
+	* 
+	* Example: 
+	* [[2, 3, 4, 5],
+	* [4, 6, 3, 1],
+	* [2, 0, 5, 7],
+	* [6, 5, 2, 1]] -> true
+	* 
+	* */
+	public static boolean task6(int[][] input) {
+		return false;
+	}
 
 }

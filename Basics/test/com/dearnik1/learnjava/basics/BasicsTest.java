@@ -9,6 +9,7 @@ import java.io.PrintStream;
 import static com.dearnik1.learnjava.basics.Main.*;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class BasicsTest {
 	@Test
@@ -106,6 +107,17 @@ public class BasicsTest {
 		assertEquals(2, result.length);
 		assertEquals("5", result[0]);
 		assertEquals("A A A A A A", result[1]);
+	}
+	
+	@Test
+	public void testTask6() throws Exception {
+		boolean isMagic = task6(new int[][]{
+				{16, 3, 2, 13},
+				{5, 10, 11, 8},
+				{9, 6, 7 ,12},
+				{4, 15, 14, 1}});
+		
+		assertTrue(isMagic);
 	}
 
 	private void mockInputStream(String value) {
